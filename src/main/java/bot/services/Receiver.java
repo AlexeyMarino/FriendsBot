@@ -38,7 +38,6 @@ public class Receiver implements Runnable{
                 else {
                     userMap.put(chatId, new UserSender(chatId, bot));
                     userMap.get(chatId).operate(update);
-                    System.out.println(chatId);
                 }
             }
 

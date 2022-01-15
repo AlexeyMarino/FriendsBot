@@ -32,6 +32,4 @@ public class DotaruParser {
         }
         return resultNews.toString();
     }
-
-
 }

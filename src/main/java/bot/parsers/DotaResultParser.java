@@ -7,13 +7,12 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
-public class DotaResultParser {
-    String dotaResults1 = "https://www.cybersport.ru/base/match?disciplines=21&status=past&page=1";
-    String dotaResults2 = "https://www.cybersport.ru/base/match?disciplines=21&status=past&page=2";
-    String dotaResults3 = "https://www.cybersport.ru/base/match?disciplines=21&status=past&page=3";
-    String[] result = new String[75];
-    int number = 0;
-
+public class DotaResultParser implements Parser{
+    private String dotaResults1 = "https://www.cybersport.ru/base/match?disciplines=21&status=past&page=1";
+    private String dotaResults2 = "https://www.cybersport.ru/base/match?disciplines=21&status=past&page=2";
+    private String dotaResults3 = "https://www.cybersport.ru/base/match?disciplines=21&status=past&page=3";
+    private String[] result = new String[75];
+    private int number = 0;
 
     public String[] getNews() {
 
@@ -23,7 +22,7 @@ public class DotaResultParser {
         return result;
     }
 
-    public void getResultPage(String link) {
+    private void getResultPage(String link) {
         Document document = null;
         try {
             document = Jsoup.connect(link)
@@ -66,8 +65,6 @@ public class DotaResultParser {
                 resultNews.append("\n");
                 resultNews.append(match.select("a.report").text()).append("\n\n");
             }
-
-
             result[number] = resultNews.toString();
             number++;
         }

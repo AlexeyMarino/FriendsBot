@@ -8,11 +8,11 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ApexResultParser {
-    String apexResults1 = "https://www.cybersport.ru/base/match?disciplines=10000011&status=past&page=1";
-    String apexResults2 = "https://www.cybersport.ru/base/match?disciplines=10000011&status=past&page=2";
-    String apexResults3 = "https://www.cybersport.ru/base/match?disciplines=10000011&status=past&page=3";
-    ArrayList<String> result = new ArrayList<>();
+public class ApexResultParser implements Parser{
+    private String apexResults1 = "https://www.cybersport.ru/base/match?disciplines=10000011&status=past&page=1";
+    private String apexResults2 = "https://www.cybersport.ru/base/match?disciplines=10000011&status=past&page=2";
+    private String apexResults3 = "https://www.cybersport.ru/base/match?disciplines=10000011&status=past&page=3";
+    private ArrayList<String> result = new ArrayList<>();
 
     public String[] getNews() {
 
@@ -22,7 +22,7 @@ public class ApexResultParser {
         return result.toArray(new String[0]);
     }
 
-    public void getResultPage(String link) {
+    private void getResultPage(String link) {
         Document document = null;
         try {
             document = Jsoup.connect(link)

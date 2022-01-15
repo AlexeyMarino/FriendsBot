@@ -8,9 +8,9 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ChampionatComNewsParser {
-    String link;
-    ArrayList<String> result = new ArrayList<>();
+public class ChampionatComNewsParser implements Parser{
+    private String link;
+    private ArrayList<String> result = new ArrayList<>();
 
     public ChampionatComNewsParser(String link) {
         this.link = link;

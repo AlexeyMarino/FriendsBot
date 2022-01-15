@@ -7,14 +7,12 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
-public class SoccerResultParser {
+public class SoccerResultParser implements Parser{
     String soccerUrl;
 
     public SoccerResultParser(String soccerUrl) {
         this.soccerUrl = soccerUrl;
     }
-
-
 
     public String[] getNews() {
         Document document = null;
@@ -80,7 +78,6 @@ public class SoccerResultParser {
                 result[i] = online.toString();
             }
         }
-
         return result;
     }
 }

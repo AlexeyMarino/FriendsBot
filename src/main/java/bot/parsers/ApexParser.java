@@ -10,15 +10,12 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
-public class ApexParser {
-    public static void main(String[] args) {
-        System.out.println(new ApexParser().getNews());
-    }
-    String dotaURL = "https://www.playground.ru/apex_legends/news";
+public class ApexParser implements Parser{
 
-    public String getNews() {
+    public String[] getNews() {
         Document document = null;
         try {
+            String dotaURL = "https://www.playground.ru/apex_legends/news";
             document = Jsoup.connect(dotaURL)
                     .userAgent("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36")
                     .get();
@@ -47,6 +44,6 @@ public class ApexParser {
             temp = String.format("[%s](%s)\n%s", links.get(i).text(), links.get(i).attr("href"), formatted);
             resultNews.append(temp).append("\n").append("----------------------------------").append("\n");
         }
-        return resultNews.toString();
+        return new String[]{resultNews.toString()};
     }
 }

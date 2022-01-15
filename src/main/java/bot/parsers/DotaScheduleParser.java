@@ -8,10 +8,9 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class DotaScheduleParser {
+public class DotaScheduleParser implements Parser{
     String dotaURL = "https://www.cybersport.ru/base/match?disciplines=21&status=future&page=";
     ArrayList<String> tempList = new ArrayList<>();
-
 
     public String[] getNews() {
 
@@ -40,9 +39,6 @@ public class DotaScheduleParser {
                 getPageContent(document);
             }
         }
-
-
-
         return tempList.toArray(new String[0]);
     }
 

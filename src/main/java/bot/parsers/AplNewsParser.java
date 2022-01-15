@@ -7,12 +7,12 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
-public class AplNewsParser {
-    String newsURL1 = "http://fapl.ru/";
-    String newsURL2 = "http://fapl.ru/news/?skip=20";
-    String newsURL3 = "http://fapl.ru/news/?skip=40";
-    String[] result = new String[60];
-    int number = 0;
+public class AplNewsParser implements Parser{
+    private String newsURL1 = "http://fapl.ru/";
+    private String newsURL2 = "http://fapl.ru/news/?skip=20";
+    private String newsURL3 = "http://fapl.ru/news/?skip=40";
+    private String[] result = new String[60];
+    private int number = 0;
 
     public String[] getNews() {
         getResultPage(newsURL1);
@@ -22,7 +22,7 @@ public class AplNewsParser {
         return result;
     }
 
-    public void getResultPage(String link){
+    private void getResultPage(String link){
         Document document = null;
         try {
             document = Jsoup.connect(link)

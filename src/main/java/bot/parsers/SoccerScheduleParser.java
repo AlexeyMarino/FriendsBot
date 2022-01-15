@@ -8,8 +8,8 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class SoccerScheduleParser {
-    String soccerUrl;
+public class SoccerScheduleParser implements Parser{
+    private String soccerUrl;
 
     public SoccerScheduleParser(String soccerUrl) {
         this.soccerUrl = soccerUrl;
@@ -40,10 +40,6 @@ public class SoccerScheduleParser {
             }
             result.add(tourResult.toString());
         }
-
-
-
-
         return result.toArray(new String[0]);
     }
 }

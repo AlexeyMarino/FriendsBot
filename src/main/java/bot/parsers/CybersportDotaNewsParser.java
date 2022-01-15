@@ -6,7 +6,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
-public class CybersportDotaNewsParser {
+public class CybersportDotaNewsParser implements Parser{
     String dotaURL;
 
     public CybersportDotaNewsParser(String dotaURL) {
@@ -35,9 +35,6 @@ public class CybersportDotaNewsParser {
             resultNews.append(temp).append("\n\n");
             allnews[i] = resultNews.toString();
         }
-
-
         return allnews;
     }
-
 }

@@ -11,6 +11,9 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+
+        <!--DB-->
+        <postgresql.version>42.3.0</postgresql.version>
     </properties>
 
     <dependencies>
@@ -58,7 +61,6 @@
             <artifactId>spring-context</artifactId>
             <version>5.3.9</version>
         </dependency>
-
 
     </dependencies>
 
